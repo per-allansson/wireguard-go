@@ -802,6 +802,11 @@ func (wintun *Interface) LUID() uint64 {
 	return ((uint64(wintun.luidIndex) & ((1 << 24) - 1)) << 24) | ((uint64(wintun.ifType) & ((1 << 16) - 1)) << 48)
 }
 
+// Return the Device Instance ID
+func (wintun *Interface) DevInstanceID() string {
+	return wintun.devInstanceID
+}
+
 func isOurHardwareID(property interface{}) bool {
 	hwidLC := strings.ToLower(hardwareID)
 
